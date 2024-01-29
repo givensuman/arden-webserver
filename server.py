@@ -15,7 +15,7 @@ class Server(BaseHTTPRequestHandler):
     # GET endpoint for /
     def do_GET(self):
         self._set_headers()
-        self.wfile.write(json.dumps({'message': 'Hello from Arden!'}))
+        self.wfile.write(bytes(json.dumps({'message': 'Hello from Arden!'}), 'utf-8'))
         
 def run(server_class=HTTPServer, handler_class=Server, port=28804):
     server_address = ('', port)
